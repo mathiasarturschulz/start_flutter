@@ -21,8 +21,8 @@ class _Start extends State {
   var _currentPage = 0;
   // lista de páginas
   static const optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const _pages = [
-    Text('Pagina 1 - Cadastro', style: optionStyle),
+  var _pages = [
+    PageCadastro(),
     Text('Pagina 2 - Informações', style: optionStyle),
     Text('Pagina 3 - Sobre', style: optionStyle),
   ];
@@ -37,21 +37,15 @@ class _Start extends State {
         bottomNavigationBar: BottomNavigationBar(
             items: [
               BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.add_circle_outline,
-                  ), 
+                  icon: Icon(Icons.add_circle_outline), 
                   label: 'Cadastro',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.assessment_outlined,
-                  ),
+                  icon: Icon(Icons.assessment_outlined),
                   label: 'Informações',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.assignment_ind_rounded,
-                  ),
+                  icon: Icon(Icons.assignment_ind_rounded),
                   label: 'Sobre'
               ),
             ],
@@ -66,6 +60,25 @@ class _Start extends State {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
+    );
+  }
+}
+
+class PageCadastro extends StatelessWidget {
+  static const optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          Text('Pagina 1 - Cadastro', style: optionStyle),
+          Divider(),
+          Text('Texto 01'),
+          Divider(),
+          Text('Texto 02'),
+          Divider(),
+        ],
+      )
     );
   }
 }
