@@ -79,7 +79,7 @@ class PageCadastro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.only(right: 20, left: 20, top: 50),
         child: Form(
           key: this._formKey,
           child: Column(
@@ -142,7 +142,6 @@ class PageCadastro extends StatelessWidget {
               ),
               // botão
               Padding(
-                // padding: const EdgeInsets.symmetric(vertical: 16.0),
                 padding: EdgeInsets.only(top: 16, left: 250),
                 child: ElevatedButton(
                   onPressed: () {
@@ -181,13 +180,25 @@ class PageInformacoes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.only(right: 20, left: 20, top: 50),
         child: Form(
           key: this._formKey,
           child: Column(
             children: [
-              Text('Informações', style: optionStyle),
-              Text('Número de pessoas vacinadas: ' + numVacinas.toString()),
+              Align(
+                alignment: Alignment.center,
+                child: Text('Informações', style: optionStyle),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Número de pessoas cadastradas para vacinação: ' + numVacinas.toString(), 
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
             ],
           ),
         )
@@ -203,12 +214,25 @@ class PageSobre extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.only(right: 20, left: 20, top: 50),
         child: Form(
           key: this._formKey,
           child: Column(
             children: [
-              Text('Sobre', style: optionStyle),
+              Align(
+                alignment: Alignment.center,
+                child: Text('Sobre', style: optionStyle),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Governo Federal do Brasil https://www.gov.br/pt-br', 
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
             ],
           ),
         )
