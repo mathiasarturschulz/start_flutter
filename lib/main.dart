@@ -224,14 +224,17 @@ class PageSobre extends StatelessWidget {
                 child: Text('Sobre', style: optionStyle),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 30),
+                padding: EdgeInsets.only(top: 30, bottom: 30),
                 child: Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   child: Text(
-                    'Governo Federal do Brasil https://www.gov.br/pt-br', 
-                    style: TextStyle(fontSize: 20),
+                    'Governo Federal do Brasil',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
+              ),
+              Image.asset(
+                'imagens/governo.jpg'
               ),
             ],
           ),
