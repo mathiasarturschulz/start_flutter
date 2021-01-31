@@ -146,11 +146,19 @@ class PageCadastro extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState.validate()) {
-                      _formKey.currentState.save();
+                      // informa uma mensagem de sucesso
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text('Vacinação registrada com sucesso! '),
+                        action: SnackBarAction(label: 'Fechar', onPressed:(){}),
+                      ));
+                      // apresenta algumas informações
                       print('=> Cadastro do usuário: ');
                       print('Nome: ${_usuario.nome}');
                       print('E-mail: ${_usuario.email}');
                       print('CPF: ${_usuario.cpf}');
+                      _formKey.currentState.save();
+                      // reseta o formulário
+                      _formKey.currentState.reset();
                     }
                   },
                   child: Text('Gravar'),
