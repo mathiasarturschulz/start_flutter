@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
+// variavel que controla o número de vacinas, por padrão começa em 19897
+var numVacinas = 19897;
+
 // Widget principal da aplicação
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -19,12 +22,10 @@ class Start extends StatefulWidget {
 class _Start extends State {
   // variavel que controla a página atual
   var _currentPage = 0;
-  // lista de páginas
-  static const optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   var _pages = [
     PageCadastro(),
-    Text('Pagina 2 - Informações', style: optionStyle),
-    Text('Pagina 3 - Sobre', style: optionStyle),
+    PageInformacoes(),
+    PageSobre(),
   ];
 
   Widget build(BuildContext context) {
@@ -157,6 +158,7 @@ class PageCadastro extends StatelessWidget {
                       print('E-mail: ${_usuario.email}');
                       print('CPF: ${_usuario.cpf}');
                       _formKey.currentState.save();
+                      numVacinas += 1;
                       // reseta o formulário
                       _formKey.currentState.reset();
                     }
@@ -164,6 +166,49 @@ class PageCadastro extends StatelessWidget {
                   child: Text('Gravar'),
                 ),
               ),
+            ],
+          ),
+        )
+      )
+    );
+  }
+}
+
+class PageInformacoes extends StatelessWidget {
+  static const optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.all(20.0),
+        child: Form(
+          key: this._formKey,
+          child: Column(
+            children: [
+              Text('Informações', style: optionStyle),
+              Text('Número de pessoas vacinadas: ' + numVacinas.toString()),
+            ],
+          ),
+        )
+      )
+    );
+  }
+}
+
+class PageSobre extends StatelessWidget {
+  static const optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.all(20.0),
+        child: Form(
+          key: this._formKey,
+          child: Column(
+            children: [
+              Text('Sobre', style: optionStyle),
             ],
           ),
         )
